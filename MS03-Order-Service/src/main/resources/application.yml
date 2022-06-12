@@ -1,0 +1,73 @@
+
+# PORT NUMBER (SERVER PROPS)
+server:
+ port: 8082
+ 
+ 
+# EUREKA CLIENT - SERVER PROPS 
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+ 
+ 
+# APPLICATION NAME
+spring:
+  application:
+    name: ORDER-SERVICE
+  
+  
+## DATASOURCE PROPS
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/microservices
+#    username: root
+#    password: root
+#    
+## JPA PROPS
+#  jpa:
+#    show-sql: true
+#    properties:
+#      hibernate:
+#       format_sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    
+    # CONFIG SERVER PROPS    cloud:    config:
+      uri: http://localhost:8888
+  config:    import: 'configserver:'    
+  
+# Open-API Props
+# swagger-ui custom path
+#springdoc.swagger-ui.path=/swagger-ui.html  
+springdoc:  swagger-ui:
+    path: /swagger-ui.html  
+    
+# ACTUATOR PROPS
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"           
+  
+
+# ADMIN SERVER PROPS  
+  
+# ZIPKIN AND SLEUTH PROPS  
+  
+  
+##Custom Messages
+order-app:
+  messages:
+    orderSaved: Order '"+savedOrder.getOrderId()+"' Saved Successfully...!
+    orderNotSaved: Order Not Saved...?  
+    orderDeleted: Order data '"+oid+"' Deleted Successfully..!
+    orderNotDeleted: Order data Not Deleted ....??
+  
+  
+  
