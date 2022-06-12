@@ -1,1 +1,87 @@
-Hello
+-------------------Development Procedure-------------------
+
+1. Implement Eureka Server 
+
+2. Implement Payment-Service (Microservice#1)
+
+3. Implement Order-Service (Microservice#2)
+
+4. Develop the Config-Server
+
+5. Develop API Gateway Application
+
+6. Implement AdminServer Application
+
+-------------------Execution Procedure-------------------
+
+1. Run the Eureka Server and Enter URL in the Browser
+		http://localhost:8761
+
+2. Run the Config Server Application
+
+3. Run the API Gateway Application
+
+4. Run the AdminServer Application
+
+5. Run the Child Microservice (Payment-Service)
+
+6. Run the Parent Microservice (Order-Microservice)
+
+>> Make the Request using API Gateway Service
+
+	>> >> >> To Save Payment Data << << <<
+=======================================================
+POST	http://localhost:2222/payment/save	SEND
+=======================================================
+	BODY	RAW(*)  >JSON
+=======================================================
+{
+	"paymentId": 1,
+	"paymentCode" : "LJS854"
+	"paymentDesc": "SUPER"
+}
+=======================================================
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+	>> >> >> To Update Payment Data << << <<
+=======================================================
+POST	http://localhost:2222/payment/save	SEND
+=======================================================
+	BODY	RAW(*)  >JSON
+=======================================================
+{
+	"paymentCode" : "PUAA454"
+	"paymentDesc": "NICE"
+}
+=======================================================
+
+
+To View Payment List Data:
+##########################
+GET 	http://localhost:2222/payment/list	SEND
+GET 	http://localhost:2222/payment/edit/1	SEND
+DELETE 	http://localhost:2222/payment/delete/1	SEND
+
+*******************************************************
+	>> >> >> To Update Order Data << << <<
+=======================================================
+POST	http://localhost:2222/order/save	SEND
+=======================================================
+	BODY	RAW(*)  >JSON
+=======================================================
+{
+	"orderId" : 5,
+	"orderStatus" : "SUCCESS"
+	"orderDesc": "NICE",
+	"pob": {
+          "paymentId": 1
+        }
+}
+=======================================================
+
+
+GET 	http://localhost:2222/order/list	SEND
+GET 	http://localhost:2222/order/edit/1	SEND
+DELETE 	http://localhost:2222/order/delete/1	SEND
+
