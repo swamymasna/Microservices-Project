@@ -1,0 +1,52 @@
+
+# PORT NUMBER (SERVER PROPS)
+server: port: 8081
+ 
+ 
+# EUREKA CLIENT - SERVER PROPS 
+eureka:  client:    register-with-eureka: true
+    fetch-registry: true    service-url:      defaultZone:  http://localhost:8761/eureka/
+  instance:    instance-id: ${spring.application.name}:${random.uuid}
+ 
+ 
+# APPLICATION NAME
+spring:
+  application:
+    name: PAYMENT-SERVICE
+    
+## DATASOURCE PROPS
+#  datasource:#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/microservices
+#    username: root
+#    password: root
+#    
+## JPA PROPS#  jpa:#    show-sql: true
+#    properties:#      hibernate:
+#       format_sql: true
+#    hibernate:#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.MySQL8Dialect
+    
+    # CONFIG SERVER PROPS    cloud:    config:      uri: http://localhost:8888
+  config:    import: 'configserver:'
+# ZIPKIN AND SLEUTH PROPS    zipkin:
+    base-url: http://localhost:9411/
+# ADMIN SERVER PROPS    boot:    admin:      client:
+        url: http://localhost:1111        # ACTUATOR PROPSmanagement:  endpoints:
+    web:
+      exposure:
+        include: "*"           
+  
+  
+##Custom Messages
+payment-app:
+ messages:
+  paymentDataSaved: Payment Data Saved Successfully
+  paymentDataNotSaved: Payment Data Not Saved ...?
+  
+  deletedPaymentData: Payment Data Deleted Successfully..!
+  notDeletedPaymentData: Payment Data Not Deleted...??
+
+
+
+
+
