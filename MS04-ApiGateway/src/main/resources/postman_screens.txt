@@ -1,0 +1,8 @@
+we will execute both microservices using API GATEWAY
+
+Example URL is given below :: execute POST, GET, PUT, DELETE,...
+
+_______________________________________________
+http://host.docker.internal:1111/company/list
+http://host.docker.internal:1111/company/list
+_______________________________________________
