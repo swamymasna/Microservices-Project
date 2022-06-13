@@ -56,9 +56,8 @@ POST	http://localhost:2222/payment/save	SEND
 }
 =======================================================
 
-
-To View Payment List Data:
-##########################
+List_Objs, GetOne_Obj, Delete_Obj Operations:
+*********************************************
 GET 	http://localhost:2222/payment/list	SEND
 GET 	http://localhost:2222/payment/edit/1	SEND
 DELETE 	http://localhost:2222/payment/delete/1	SEND
@@ -81,6 +80,8 @@ POST	http://localhost:2222/order/save	SEND
 =======================================================
 
 
+List_Objs, GetOne_Obj, Delete_Obj Operations:
+*********************************************
 GET 	http://localhost:2222/order/list	SEND
 GET 	http://localhost:2222/order/edit/1	SEND
 DELETE 	http://localhost:2222/order/delete/1	SEND
